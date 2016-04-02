@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <style>
+
+          .axis path,
+          .axis line {
+              fill: none;
+              stroke: black;
+              shape-rendering: crispEdges;
+          }
+
+          .axis text {
+              font-family: sans-serif;
+              font-size: 11px;
+          }
+        </style>
+    </head>
+    <body>
+      <!-- Link to D3.js library -->
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+
+      <script type="text/javascript">
+
+        var LINES = 50;
+
+  			// Width and height
+  			var w = 500;
+  			var h = 500;
+        var padding = 30;
+
+  			// Get fake data
+        var dataset = generateData();
+
+  			// Create SVG element
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        var xScale = d3.scale.linear()
+                     .domain([0, 50])
+                     .range([padding, w - padding]);
+
+        var yScale = d3.scale.linear()
+                     .domain([-1, 1])
+                     .range([h - padding, padding]);
+
+        var xAxis = d3.svg.axis()
+                    .scale(xScale)
+                    .orient("bottom")
+                    .ticks(5);
+
+        var yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left")
+                    .ticks(5);
+
+        svg.selectAll("circle")
+           .data(dataset)
+           .enter()
+           .append("circle")
+           .attr("cx", function(d) {
+              return xScale(d[0]);   // position on x-axis
+           })
+           .attr("cy", function(d) {
+              return yScale(d[1]);    // position on y-axis
+           })
+           .attr("r", 2);
+
+        svg.selectAll("text")
+          .data(dataset)
+          .enter()
+          .append("text")
+          .text(function(d) {
+            return d[0] + "," + d[1];  // "x,y"
+          })
+          .attr("x", function(d) {
+            return xScale(d[0]);       // position on x-axis
+          })
+          .attr("y", function(d) {
+            return yScale(d[1]);       // position on x-axis
+          })
+          .attr("font-family", "sans-serif")
+          .attr("font-size", "11px")
+          .attr("fill", "red");
+
+        svg.append("g")
+          .attr("class", "axis")
+          .attr("transform", "translate(0," + (h - padding) + ")")
+          .call(xAxis);
+
+        svg.append("g")
+          .attr("class", "axis")
+          .attr("transform", "translate(" + padding + ",0)")
+//          .attr("fill", "red")
+          .call(yAxis);
+
+        // Helper function
+        function generateData() {
+          var fakeData = [];
+          for (var i = 0; i < LINES; i++) {
+            fakeData.push([i, (Math.random() * 2) - 1]);
+          }
+          return fakeData;
+        };
+      </script>
+    </body>
+</html>
