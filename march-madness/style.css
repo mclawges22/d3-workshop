@@ -1,0 +1,90 @@
+body {
+    font: 16px Georgia,'Times New Roman',serif;
+    margin-top: 20px;
+}
+
+code {
+    background-color: #f0f0fc;
+    padding: 2px;
+    font-size: 14px;
+}
+
+a, a:visited {
+    color: black;
+}
+
+h1 {
+    font: bold 24px Georgia,'Times New Roman',serif;
+    margin-bottom: 20px;
+}
+
+h2 {
+    display: block;
+    font: bold 18px Georgia,'Times New Roman',serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-top: 20px;
+    font:  18px Georgia,'Times New Roman',serif underline;
+}
+
+h3 {
+    margin-top: 20px;
+    font:  18px Georgia,'Times New Roman',serif underline;
+}
+
+h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font:  12px Georgia,'Times New Roman',serif underline;
+}
+
+p img {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font: 16px Georgia,'Times New Roman',serif;
+    line-height: 140%;
+}
+
+#bracket {
+  margin: 20px 15%;
+}
+
+#head {
+  text-align: center;
+  font-weight: 600;
+  color: #7BAFD4;
+  font-size: 48px;
+}
+
+.content {
+    margin-top: 40px;
+}
+
+#headertxt {
+    display: block;
+    margin-top: 30px;
+}
+
+.mainboxes {
+    margin-top: 40px;
+}
+
+.footer {
+    color: #777;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font:  12px Georgia,'Times New Roman',serif underline;
+}
+
+.footer a, .footer a:visited {
+    color: #777;
+}
